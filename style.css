@@ -1,0 +1,780 @@
+/* ===================================================
+STYLE UTAMA – Brew & Co Café Website
+=================================================== */
+
+/* ===============================
+    VARIABEL WARNA & DASAR
+=============================== */
+:root {
+    --bg-main: #f6f1eb;
+    --coffee-dark: #8b5e3c;
+    --coffee-hover: #70452b;
+    --text-main: #2e2e2e;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/* ===============================
+    SECTION & UTILITIES UMUM
+=============================== */
+section {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #111;
+}
+
+p {
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.subtitle {
+    max-width: 600px;
+    margin: 15px auto 45px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--coffee-dark);
+    color: var(--white);
+    border: 2px solid var(--coffee-dark);
+}
+
+.btn-primary:hover {
+    background-color: var(--coffee-hover);
+    border-color: var(--coffee-hover);
+}
+
+.btn-outline {
+    border: 2px solid var(--white);
+    background: transparent;
+    color: var(--white);
+}
+
+.btn-outline:hover {
+    background-color: var(--white);
+    color: var(--coffee-dark);
+}
+
+
+/* ===============================
+    NAVBAR
+=============================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #af8966;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 10%;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-left {
+    display: flex;
+    gap: 3.5rem;
+    list-style: none;
+}
+
+.logo {
+    font-size: 1.8rem;
+    color: #70441b;
+    letter-spacing: 1px;
+}
+
+.nav-left a {
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-left a:hover {
+    color: var(--coffee-dark);
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: var(--text-main);
+    transition: all 0.4s ease-in-out;
+}
+
+.hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+
+/* ===============================
+    HERO SECTION
+=============================== */
+.hero {
+    height: 100vh;
+    background: url('https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/958f00104375759.5f61b4a76febd.jpg')
+                center / cover no-repeat fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: var(--white);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    padding: 40px;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    margin-bottom: 15px;
+    color: #f5deb3;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    animation: fadeUp 1.2s ease forwards;
+    opacity: 0;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: #f3f3f3;
+    margin-bottom: 25px;
+    animation: fadeUp 1.6s ease forwards;
+    opacity: 0;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    animation: fadeUp 1.8s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+
+/* ===============================
+    MENU SECTION
+=============================== */
+.menu-section {
+    background-color: var(--white);
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+.menu-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.menu-toggle button {
+    background-color: transparent;
+    border: 2px solid var(--coffee-dark);
+    color: var(--coffee-dark);
+    padding: 10px 28px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle button.active {
+    background-color: var(--coffee-dark);
+    color: var(--white);
+}
+
+.menu-toggle button:not(.active):hover {
+    background-color: #eaddd2;
+}
+
+.menu-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-gallery {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 20px 5px;
+    scroll-snap-type: x mandatory;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.menu-gallery::-webkit-scrollbar { display: none; }
+
+.menu-item {
+    flex-shrink: 0;
+    width: 220px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    scroll-snap-align: start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.menu-item:hover img {
+    transform: scale(1.05);
+}
+
+.menu-item p {
+    font-weight: 600;
+    padding: 15px 10px;
+    color: var(--coffee-dark);
+    background-color: var(--white);
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--white);
+    color: var(--coffee-dark);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll-btn:hover {
+    background-color: var(--coffee-dark);
+    color: var(--white);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-btn.left { left: -20px; }
+.scroll-btn.right { right: -20px; }
+
+
+/* ===============================
+    ABOUT SECTION
+=============================== */
+.about-section {
+    background: linear-gradient(rgba(212, 183, 146, 0.9), rgba(246, 241, 235, 0.9)),
+                url("image/Coffebeans.jpg") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1100px;
+    width: 100%;
+}
+
+.about-text {
+    flex: 1;
+    text-align: left;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #3a2a20;
+}
+
+.about-text p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.about-image {
+    flex: 1;
+    text-align: right;
+}
+
+.about-image img {
+    width: 90%;
+    max-width: 450px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+
+/* ===============================
+    TESTIMONIALS SECTION
+=============================== */
+.testimonials-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.testimonial-card {
+    background-color: var(--white);
+    border-radius: 15px;
+    padding: 25px;
+    max-width: 350px;
+    text-align: left;
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.stars {
+    color: var(--coffee-dark);
+    margin-bottom: 10px;
+}
+
+.quote {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* ===============================
+    CONTACT SECTION
+=============================== */
+.contact-section {
+    background-color: var(--coffee-dark);
+    color: var(--white);
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.contact-section h2,
+.contact-section h3 {
+    color: var(--white);
+}
+
+.contact-section .subtitle {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 2rem;
+}
+
+.info-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    min-width: 250px;
+}
+
+.contact-section .info-item p {
+    color: var(--white);
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+
+/* ===============================
+    FOOTER
+=============================== */
+.footer {
+    background-color: #5f3610;
+    color: var(--bg-main);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+.footer p {
+    color: inherit;
+}
+
+
+/* ===============================
+    MODAL POPUP STYLE
+=============================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    animation: scaleUp 0.3s ease;
+    position: relative;
+}
+
+.modal-content img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.modal-content h3 {
+    color: #5a3e27;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.modal-content ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.modal-content ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-content ul li:last-child {
+    border-bottom: none;
+}
+
+.close-btn {
+    position: absolute;
+    top: -7px;
+    right: 5px;
+    color: #555;
+    font-size: 2.2rem;
+    font-weight: normal;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.close-btn:hover {
+    color: #a35d2d;
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleUp { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* --- Style untuk Tombol & Modal Anggota --- */
+.btn-member {
+    margin-top: 20px;
+}
+
+.member-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.member-card {
+    text-align: center;
+}
+
+.member-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.member-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.member-major {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 4px;
+}
+
+
+/* ===============================
+    RESPONSIVE DESIGN
+=============================== */
+@media (min-width: 480px) {
+    #memberModal .modal-content {
+      max-width: 600px;
+    }
+    
+    .member-grid {
+       grid-template-columns: repeat(3, 1fr);
+       gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 60px 5%;
+    }
+
+    .navbar {
+        padding: 14px 5%;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        top: 61px;
+        left: 0;
+        background-color: #af8966;
+        padding: 1rem 0;
+        transform: translateY(-150%);
+        transition: transform 0.5s ease-in-out;
+        z-index: -1;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+    }
+
+    .nav-left {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .menu-toggle {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .menu-toggle button {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+
+    .menu-gallery {
+        padding: 20px 10px;
+    }
+
+    .menu-item {
+        width: 180px;
+    }
+
+    .scroll-btn {
+        display: none;
+    }
+
+    .about-content {
+       flex-direction: column;
+       gap: 30px;
+    }
+
+    /* === PERBAIKAN TAMPILAN MOBILE DIMULAI DISINI === */
+    .about-text {
+        text-align: center; /* Membuat semua teks & tombol di dalamnya ke tengah */
+    }
+
+    .about-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-image {
+        text-align: center;
+    }
+    .about-image img {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    #memberModal .member-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom di layar kecil */
+        gap: 15px;
+    }
+
+    #memberModal .member-name {
+        font-size: 0.9rem; /* Perkecil font nama */
+    }
+
+    #memberModal .member-major {
+        font-size: 0.75rem; /* Perkecil font jurusan */
+    }
+    /* === PERBAIKAN TAMPILAN MOBILE SELESAI === */
+
+    .testimonial-card {
+        max-width: 100%;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .info-item {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    .hero-content {
+        padding: 20px;
+    }
+    
+    /* Perbaikan tambahan untuk layar sangat kecil */
+    #memberModal .member-grid {
+        grid-template-columns: 1fr; /* Kembali ke 1 kolom */
+    }
+}

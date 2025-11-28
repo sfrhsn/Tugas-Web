@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Brew & Co. - Rasakan perpaduan sempurna antara kopi artisan dan keramahan yang hangat.">
+    <title>Brew & Co. - Coffee Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">Brew & Co.</div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links">
+        <ul class="nav-left">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Crafted With Passion</h1>
+        <p>Experience the perfect blend of artisanal coffee and warm hospitality</p>
+        <div class="hero-buttons">
+          <a href="#menu" class="btn btn-primary">Explore Menu</a>
+          <a href="https://share.google/T8F4RqMbbFOmgrtwR" target="_blank" class="btn btn-outline">Lokasi Coffee</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+      <h2>Our Menu</h2>
+      <p class="subtitle">Nikmatin berbagai pilihan kopi premium dan camilan lezat yang udah kami racik khusus buat kamu!</p>
+
+      <div class="menu-toggle">
+        <button id="btnCoffee" class="active" onclick="showCategory('coffee')">Coffee</button>
+        <button id="btnSnacks" onclick="showCategory('snacks')">Snacks</button>
+      </div>
+
+      <div class="menu-wrapper">
+        <button class="scroll-btn left" onclick="scrollMenu(-1)">&#10094;</button>
+
+        <div class="menu-gallery" id="coffeeMenu">
+          <div class="menu-item" onclick="openModal('espresso')"><img src="image/espresso.jpg" alt="Espresso"><p>Espresso</p></div>
+          <div class="menu-item" onclick="openModal('latte')"><img src="image/latte.jpg" alt="Latte"><p>Latte</p></div>
+          <div class="menu-item" onclick="openModal('cappuccino')"><img src="image/capucino.jpg" alt="Cappuccino"><p>Cappuccino</p></div>
+          <div class="menu-item" onclick="openModal('mocha')"><img src="image/mocha.jpg" alt="Mocha"><p>Mocha</p></div>
+          <div class="menu-item" onclick="openModal('americano')"><img src="image/americano.jpg" alt="Americano"><p>Americano</p></div>
+          <div class="menu-item" onclick="openModal('matcha')"><img src="image/matcha.jpg" alt="Matcha"><p>Matcha</p></div>
+          <div class="menu-item" onclick="openModal('coldbrew')"><img src="image/coldbrew.jpg" alt="Cold Brew"><p>Cold Brew</p></div>
+        </div>
+
+        <div class="menu-gallery" id="snackMenu" style="display:none;">
+          <div class="menu-item" onclick="openModal('brownies')"><img src="image/Brownies.jpg" alt="Brownies"><p>Brownies</p></div>
+          <div class="menu-item" onclick="openModal('cookies')"><img src="image/Cookies.jpg" alt="Cookies"><p>Cookies</p></div>
+          <div class="menu-item" onclick="openModal('croissant')"><img src="image/Croissant.jpg" alt="Croissant"><p>Croissant</p></div>
+          <div class="menu-item" onclick="openModal('fries')"><img src="image/FrenchFries.jpg" alt="French Fries"><p>French Fries</p></div>
+          <div class="menu-item" onclick="openModal('onionrings')"><img src="image/Onionrings.jpg" alt="Onion Rings"><p>Onion Rings</p></div>
+          <div class="menu-item" onclick="openModal('nugget')"><img src="image/Nugget.jpg" alt="Nugget"><p>Nugget</p></div>
+        </div>
+
+        <button class="scroll-btn right" onclick="scrollMenu(1)">&#10095;</button>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About Our Coffee</h2>
+          <p>Di Brew & Co, kami percaya bahwa kopi yang enak berawal dari biji kopi yang berkualitas. Kami mendapatkan biji kopi langsung dari petani berkelanjutan, supaya tetap terjamin kualitas dan praktik etisnya.</p>
+          <p>Barista kami ahli dalam meracik kopi, mampu menghadirkan cita rasa dan aroma khas di setiap cangkir. Mau kamu suka espresso yang kuat atau latte yang lembut, setiap minuman kami buat dengan ketelitian dan sepenuh hati.</p>
+          <button class="btn btn-primary btn-member" onclick="openMemberModal()">Anggota Kami</button>
+        </div>
+        <div class="about-image">
+          <img src="image/coffeshop.jpg" alt="Suasana di dalam Coffee Shop Brew & Co.">
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonials-section">
+      <h2>What Our Customers Say</h2>
+      <p class="subtitle">Jangan cuma percaya omongan kita - dengerin aja cerita dari pelanggan setia Brew & Co. tentang pengalaman mereka di sini!</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">“Kopi paling enak di kota! Tempatnya nyaman banget, baristanya juga selalu bikin latte aku pas banget. Hampir tiap pagi mampir ke sini sebelum kerja.”</p>
+          <div class="author">
+            <img src="image/images.jpg" alt="Foto Pelanggan Kenmochi Toya">
+            <div><strong>Kenmochi Toya</strong><br><span>Regular Customer</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">“Brew & Co. bener-bener serius soal kopi. Biji kopinya yang single origin tuh mantap banget, kerasa banget kualitasnya di tiap tegukan. Wajib banget dicoba!”</p>
+          <div class="author">
+            <img src="image/unnamed.jpg" alt="Foto Pelanggan Fuwa Minato">
+            <div><strong>Fuwa Minato</strong><br><span>Coffee Enthusiast</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <h2>Visit Us</h2>
+      <p class="subtitle">Datang langsung ke kedai kami dan rasakan secangkir kopi yang sempurna di suasana yang hangat dan ramah.</p>
+      <div class="contact-info">
+        <div class="info-item"><h3>Location</h3><p>Ketintang, Gayungan, Jawa timur <br> (60231)</p></div>
+        <div class="info-item"><h3>Hours</h3><p>Mon–Fri: 7am – 8pm<br>Sat–Sun: 8am – 9pm</p></div>
+        <div class="info-item"><h3>Contact</h3><p>+6281358845236<br>miwafgaming@gmail.com</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Brew & Co. All rights reserved.</p>
+  </footer>
+
+  <div id="memberModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('memberModal')">&times;</span>
+      <h3>Our Team</h3>
+      <div id="memberGrid" class="member-grid">
+        </div>
+    </div>
+  </div>
+
+  <div id="menuModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('menuModal')">&times;</span>
+      <img id="modalImage" src="" alt="Gambar Detail Menu">
+      <h3 id="modalTitle"></h3>
+      <ul id="modalInfo"></ul>
+    </div>
+  </div>
+
+  <script src="Script.js"></script>
+
+</body>
+</html>
